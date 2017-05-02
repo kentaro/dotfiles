@@ -13,3 +13,7 @@ eval "$(rbenv init -)"
 
 # Rust
 source $HOME/.cargo/env
+rc () { cd $GHQ_ROOT/github.com/jonathandturner/rls_vscode && code . && cd - ; }
+
+# VSCode
+code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ; }
