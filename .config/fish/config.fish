@@ -1,14 +1,25 @@
 # Fish
-# http://qiita.com/susieyy/items/ac2133e249f252dc9a34
+# http://futurismo.biz/archives/6087
 
-# Path to Oh My Fish install.
-set -gx OMF_PATH $HOME/.local/share/omf
+# 環境変数読み込み
+. ~/.config/fish/env.fish
 
-# Customize Oh My Fish configuration path.
-#set -gx OMF_CONFIG $HOME/.config/omf
+# Ruby
+rbenv init - | source
 
-# Load oh-my-fish configuration.
-source $OMF_PATH/init.fish
+# Git
+hub alias -s fish
 
-# Set
-set fish_theme agnoster
+# Ensure fisherman and plugins are installed
+if not test -f $HOME/.config/fish/functions/fisher.fish
+  echo "==> Fisherman not found.  Installing."
+  curl -sLo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
+  fisher
+end
+
+function fish_user_key_bindings
+  # ghqを選択
+  bind \cs peco_select_ghq_repository
+  # コマンド履歴を見る
+  bind \cr peco_select_history
+end
