@@ -1,4 +1,17 @@
-# This is Git's per-user configuration file.
 [user]
-name  = Kentaro Kuribayashi
-email = kentarok@gmail.com
+  name = Kentaro Kuribayashi
+  email = kentarok@gmail.com
+[core]
+  excludesfile = ~/.gitignore
+  autocrlf = input
+  editor = vim -u NONE -N
+  quotepath = false
+  precomposeunicode = true
+[alias]
+  st = status
+  ci = commit
+  co = checkout
+  br = branch
+  pr = pull-request
+[ghq]
+  root = ~/src
